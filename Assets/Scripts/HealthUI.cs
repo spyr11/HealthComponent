@@ -7,7 +7,9 @@ public class HealthUI : MonoBehaviour
     [SerializeField] private HealthComponent _healthComponent;
     [SerializeField] private Slider _slider;
     [SerializeField] private Slider _slowSlider;
-    [SerializeField] private TextMeshProUGUI _textMeshPro;
+    [SerializeField] private TextMeshProUGUI _textCurrent;
+    [SerializeField] private TextMeshProUGUI _textSlash;
+    [SerializeField] private TextMeshProUGUI _textMax;
 
     private bool _isValueChanged;
 
@@ -25,7 +27,10 @@ public class HealthUI : MonoBehaviour
     {
         _slowSlider.value = _slider.value;
 
-        _textMeshPro.text = $"{_healthComponent.MaxHealth}/{_healthComponent.MaxHealth}";
+        _textCurrent.text = _healthComponent.MaxHealth.ToString();
+        _textSlash.text = "/";
+        _textMax.text = _healthComponent.MaxHealth.ToString();
+
     }
 
     private void Update()
@@ -46,7 +51,8 @@ public class HealthUI : MonoBehaviour
 
     private void ChangeTextValue(float value)
     {
-        _textMeshPro.text = $"{value}/{_healthComponent.MaxHealth}";
+        _textCurrent.text = value.ToString();
+        _textMax.text = _healthComponent.MaxHealth.ToString();
     }
 
     private void ChangeValueSlider(float value)

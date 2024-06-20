@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class HealthComponent : MonoBehaviour
 {
-    [SerializeField] private PushButton _damage;
-    [SerializeField] private PushButton _heal;
+    [SerializeField] private ActionButton _damage;
+    [SerializeField] private ActionButton _heal;
     [field: SerializeField, Range(0, 300)] public float MaxHealth { get; private set; }
 
     private float _currentHealth;

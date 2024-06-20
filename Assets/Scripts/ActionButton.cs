@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Button))]
-public class PushButton : MonoBehaviour
+public class ActionButton : MonoBehaviour
 {
     private Button _button;
     private float _value = 15f;
@@ -18,7 +18,7 @@ public class PushButton : MonoBehaviour
 
     private void OnEnable()
     {
-      _button.onClick.AddListener(OnClicked);
+        _button.onClick.AddListener(OnClicked);
     }
 
     private void OnClicked()
