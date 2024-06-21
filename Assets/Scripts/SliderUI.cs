@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SliderUI : HealthUI
+public class SliderUI : BaseIndicatorUI
 {
     [SerializeField] private Slider _slider;
     [SerializeField] private bool _isSmooth;
@@ -11,7 +11,7 @@ public class SliderUI : HealthUI
 
     protected override void ChangeValue(float value)
     {
-        float newValue = value / MaxHealth;
+        float newValue = value / MaxValue;
 
         if (_isSmooth)
         {

@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-public class TextUI : HealthUI
+public class TextUI : BaseIndicatorUI
 {
     [SerializeField] private TextMeshProUGUI _textCurrent;
     [SerializeField] private TextMeshProUGUI _textMax;
@@ -9,6 +9,6 @@ public class TextUI : HealthUI
     protected override void ChangeValue(float value)
     {
         _textCurrent.text = value.ToString();
-        _textMax.text = MaxHealth.ToString();
+        _textMax.text = MaxValue.ToString();
     }
 }

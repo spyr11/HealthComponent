@@ -189,7 +189,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damage: {fileID: 420410931}
   _heal: {fileID: 224583359}
-  <MaxHealth>k__BackingField: 162
+  _maxHealth: 162
 --- !u!4 &163901200
 Transform:
   m_ObjectHideFlags: 0
@@ -1536,7 +1536,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dabe9b5b7347924d8cb1b164482e4ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: {fileID: 163901199}
+  _indicator: {fileID: 163901199}
   _slider: {fileID: 240992882}
   _isSmooth: 1
 --- !u!114 &1026756072
@@ -1654,7 +1654,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 575e702b5e20c8ec7a36f8e1548001be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: {fileID: 163901199}
+  _indicator: {fileID: 163901199}
   _textCurrent: {fileID: 1453335827}
   _textMax: {fileID: 949118051}
 --- !u!114 &1049669192
@@ -2400,7 +2400,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dabe9b5b7347924d8cb1b164482e4ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: {fileID: 163901199}
+  _indicator: {fileID: 163901199}
   _slider: {fileID: 1727957263}
   _isSmooth: 0
 --- !u!1660057539 &9223372036854775807

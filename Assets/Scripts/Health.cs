@@ -2,19 +2,21 @@
 using System;
 using UnityEngine;
 
-public class Health : MonoBehaviour
+public class Health : MonoBehaviour, IIndicator
 {
     [SerializeField] private ActionButton _damage;
     [SerializeField] private ActionButton _heal;
-    [field: SerializeField, Range(0, 300)] public float MaxHealth { get; private set; }
+    [SerializeField, Range(0, 300)] private float _maxHealth;
 
     private float _currentHealth;
 
-    public event Action<float> HealthChanged;
+    public event Action<float> Changed;
+
+    public float MaxValue => _maxHealth;
 
     private void Awake()
     {
-        _currentHealth = MaxHealth;
+        _currentHealth = MaxValue;
     }
 
     private void OnEnable()
@@ -31,7 +33,7 @@ public class Health : MonoBehaviour
 
     private void Start()
     {
-        HealthChanged?.Invoke(_currentHealth);
+        Changed?.Invoke(_currentHealth);
     }
 
     private void Increase(float value)
@@ -41,9 +43,9 @@ public class Health : MonoBehaviour
             return;
         }
 
-        _currentHealth = Mathf.Clamp(_currentHealth + value, 0, MaxHealth);
+        _currentHealth = Mathf.Clamp(_currentHealth + value, 0, MaxValue);
 
-        HealthChanged?.Invoke(_currentHealth);
+        Changed?.Invoke(_currentHealth);
     }
 
     private void Decrease(float value)
@@ -53,8 +55,8 @@ public class Health : MonoBehaviour
             return;
         }
 
-        _currentHealth = Mathf.Clamp(_currentHealth - value, 0, MaxHealth);
+        _currentHealth = Mathf.Clamp(_currentHealth - value, 0, MaxValue);
 
-        HealthChanged?.Invoke(_currentHealth);
+        Changed?.Invoke(_currentHealth);
     }
 }
