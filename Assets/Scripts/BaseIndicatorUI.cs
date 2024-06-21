@@ -4,9 +4,9 @@ public abstract class BaseIndicatorUI : MonoBehaviour
 {
     [SerializeField] private MonoBehaviour _indicator;
 
-    private IIndicator _changeable;
+    private IIndicator _iIndicator;
 
-    public float MaxValue => _changeable.MaxValue;
+    public float MaxValue => _iIndicator.MaxValue;
 
     private void OnValidate()
     {
@@ -20,17 +20,17 @@ public abstract class BaseIndicatorUI : MonoBehaviour
 
     private void Awake()
     {
-        _changeable = (IIndicator)_indicator;
+        _iIndicator = (IIndicator)_indicator;
     }
 
     private void OnEnable()
     {
-        _changeable.Changed += OnValueChanged;
+        _iIndicator.Changed += OnValueChanged;
     }
 
     private void OnDisable()
     {
-        _changeable.Changed -= OnValueChanged;
+        _iIndicator.Changed -= OnValueChanged;
     }
 
     protected abstract void ChangeValue(float value);
