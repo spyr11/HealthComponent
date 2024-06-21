@@ -2,7 +2,7 @@
 using System;
 using UnityEngine;
 
-public class HealthComponent : MonoBehaviour
+public class Health : MonoBehaviour
 {
     [SerializeField] private ActionButton _damage;
     [SerializeField] private ActionButton _heal;
@@ -36,6 +36,11 @@ public class HealthComponent : MonoBehaviour
 
     private void Increase(float value)
     {
+        if (value <= 0)
+        {
+            return;
+        }
+
         _currentHealth = Mathf.Clamp(_currentHealth + value, 0, MaxHealth);
 
         HealthChanged?.Invoke(_currentHealth);
@@ -43,6 +48,11 @@ public class HealthComponent : MonoBehaviour
 
     private void Decrease(float value)
     {
+        if (value <= 0)
+        {
+            return;
+        }
+
         _currentHealth = Mathf.Clamp(_currentHealth - value, 0, MaxHealth);
 
         HealthChanged?.Invoke(_currentHealth);
